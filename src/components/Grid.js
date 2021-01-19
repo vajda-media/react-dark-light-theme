@@ -112,8 +112,8 @@ const Grid = ({ theme }) => {
     return (
         <div className="dk-container">
             <GridContainerTitle className="dk-title">
-                <h1>DK Gruppe ist ein Unternehmensverband mehrere Unternehmen und Kooperationspartner.</h1>
-                <p>In den Bereichen Gesundheitsförderung, Marketing und Digitalisierung, werden gemeinsam Projekte geplant, gesteuert und verwirklicht. Sie werden unterstützt von der Verwaltungsgesellschaft Daniel Keim Vermietung &amp; Verpachtung welche für die einzelnen Unternehmen tätig ist aber auch eigenständige Projekte unter anderem in der Bau- und Immobilienbranche pflegt und umsetzt.</p>
+                <h1>DK Gruppe ist ein Unternehmensverband mehrerer Unternehmen und Kooperationspartner.</h1>
+                <p>In den Bereichen Gesundheitsf&ouml;rderung, Marketing und Digitalisierung, werden gemeinsam Projekte geplant, gesteuert und verwirklicht. Sie werden unterst&uuml;tzt von der Verwaltungsgesellschaft Daniel Keim Vermietung &amp; Verpachtung welche f&uuml;r die einzelnen Unternehmen t&auml;tig ist aber auch eigenst&auml;ndige Projekte unter anderem in der Bau- und Immobilienbranche pflegt und umsetzt.</p>
             </GridContainerTitle>
             <GridContainer className="dk-logos-grid dk-logos-grid-first">
                 <a href="https://danielkeim.de/" target="_blank" rel="noopener noreferrer"><img className="dk-logos" src={isLight ? 'images/dk-consulting-dark.png' : 'images/dk-consulting-light.png'} alt="dk-logo" /></a>

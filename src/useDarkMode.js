@@ -34,7 +34,7 @@ export const useDarkMode = () => {
     }
 
     if (localTime >= 1 && localTime<= 11) {
-      setDayTime('Tag');
+      setDayTime('Morgen');
     }
 
     if (localTime >= 12 && localTime <= 17) {
@@ -53,31 +53,33 @@ export const useDarkMode = () => {
     const localTheme = window.localStorage.getItem('theme');
     const date = new Date();
     const time = date.toLocaleTimeString('de-DE').split(':')[0];
+    let diffSeconds = null;
     setTime(time);
 
     let savedDateStamp = window.localStorage.getItem('theme-datestamp');
 
     if (savedDateStamp !== null) {
       const endDate = new Date();
-      const diffSeconds = (endDate - new Date(window.localStorage.getItem('theme-datestamp'))) / 1000;
+      diffSeconds = (endDate - new Date(window.localStorage.getItem('theme-datestamp'))) / 1000;
+    }
 
-      window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localTheme ?
-        setMode('dark') : localTheme ?
-          setTheme(localTheme) :
-          setMode('light');
+    if (diffSeconds !== null && parseInt(diffSeconds) <= 300) {
+        window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localTheme ? setMode('dark') : localTheme ? setTheme(localTheme) : setMode('light');
 
-      if (time >= 1 && time <= 11) {
-        setDayTime('Tag');
-      }
+        if (time >= 1 && time <= 11) {
+          setDayTime('Morgen');
+        }
 
-      if (time >= 12 && time <= 17) {
-        setDayTime('Tag');
-      }
+        if (time >= 12 && time <= 17) {
+          setDayTime('Tag');
+        }
 
-      if (time >= 18 && time <= 24) {
-        setDayTime('Abend');
-      }
+        if (time >= 18 && time <= 24) {
+          setDayTime('Abend');
+        }
     } else {
+      window.localStorage.removeItem('theme-datestamp');
+
       if (time >= 1 && time <= 11) {
         setDayTime('Morgen');
         setMode('light');
@@ -87,7 +89,7 @@ export const useDarkMode = () => {
       } else {
         setDayTime('Abend');
         setMode('dark');
-      }  
+      }
     }
     setComponentMounted(true);
   }, []);

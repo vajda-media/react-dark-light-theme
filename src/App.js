@@ -34,7 +34,7 @@ function App() {
           buttonStyle={{ background: "#6DA12B", color: "#FFF", fontSize: "16px" }}
           expires={150}
         >
-          <span style={{color: themeMode.text === '#FAFAFA' ? '#363537' : '#fff'}}>Diese Website nutzt Cookies, um bestmögliche Funktionalität bieten zu können.{" "}</span>
+          <span style={{color: themeMode.text === '#FAFAFA' ? '#363537' : '#fff'}}>Diese Website nutzt Cookies, um bestm&ouml;gliche Funktionalit&auml;t bieten zu k&ouml;nnen.{" "}</span>
         </CookieConsent>
       </>
     </ThemeProvider>
