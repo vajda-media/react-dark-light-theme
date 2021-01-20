@@ -16,11 +16,18 @@ export const useDarkMode = () => {
     { volume: 0.25 }
   );
 
+  /**
+   * Set the theme mode
+   * @param {String} mode theme light / dark
+   */
   const setMode = mode => {
     window.localStorage.setItem('theme', mode)
     setTheme(mode)
   };
 
+  /**
+   * Toggle for the theme switch
+   */
   const toggleTheme = () => {
     if (theme === 'light') {
       playOn();
@@ -33,7 +40,7 @@ export const useDarkMode = () => {
       window.localStorage.setItem('theme-datestamp', new Date());
     }
 
-    if (localTime >= 1 && localTime<= 11) {
+    if (localTime >= 1 && localTime <= 11) {
       setDayTime('Morgen');
     }
 
@@ -63,6 +70,8 @@ export const useDarkMode = () => {
       diffSeconds = (endDate - new Date(window.localStorage.getItem('theme-datestamp'))) / 1000;
     }
 
+    // In between of 5 mins. the switched theme saved in the localstorage is shown.
+    // After the expired time is switching back to the daytime mode.
     if (diffSeconds !== null && parseInt(diffSeconds) <= 300) {
         window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localTheme ? setMode('dark') : localTheme ? setTheme(localTheme) : setMode('light');
 
